@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" dest="out" name="default">
+    <!-- Define custom levels before using them for filtering below. https://logging.apache.org/log4j/2.x/manual/customloglevels.html -->
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <JSONLayout objectMessageAsJsonObject="true" compact="false" eventEol="true" locationInfo="true" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="debug" additivity="false">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>

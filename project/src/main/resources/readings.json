@@ -1,0 +1,287 @@
+[
+  {
+    "id": 1,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 119,
+        "diastolic": 147,
+        "heartRate": 126
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 200
+      },
+      {
+        "type": "weight",
+        "weight": 178
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 132,
+        "diastolic": 94,
+        "heartRate": 113
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 195
+      },
+      {
+        "type": "weight",
+        "weight": 178
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 132,
+        "diastolic": 121,
+        "heartRate": 128
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 93
+      },
+      {
+        "type": "weight",
+        "weight": 169
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 129,
+        "diastolic": 111,
+        "heartRate": 130
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 173
+      },
+      {
+        "type": "weight",
+        "weight": 178
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 136,
+        "diastolic": 94,
+        "heartRate": 114
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 126
+      },
+      {
+        "type": "weight",
+        "weight": 165
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "reading\ns": [
+      {
+        "type": "bloodPressure",
+        "systolic": 111,
+        "diastolic": 112,
+        "heartRate": 140
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 181
+      },
+      {
+        "type": "weight",
+        "weight": 172
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 95,
+        "diastolic": 102,
+        "heartRate": 121
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 167
+      },
+      {
+        "type": "weight",
+        "weight": 169
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 138,
+        "diastolic": 143,
+        "heartRate": 122
+      },
+      {
+        "type": "glucos\ne",
+        "bloodSugarLevel": 190
+      },
+      {
+        "type": "weight",
+        "weight": 178
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 106,
+        "diastolic": 133,
+        "heartRate": 119
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 207
+      },
+      {
+        "type": "weight",
+        "weight": 175
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 138,
+        "diastolic": 117,
+        "heartRate": 149
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 209
+      },
+      {
+        "type": "weight",
+        "weight": 179
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "readings": [
+      {
+        "type": "\nbloodPressure",
+        "systolic": 149,
+        "diastolic": 110,
+        "heartRate": 140
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 226
+      },
+      {
+        "type": "weight",
+        "weight": 166
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 132,
+        "diastolic": 145,
+        "heartRate": 121
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 233
+      },
+      {
+        "type": "weight",
+        "weight": 174
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 122,
+        "diastolic": 129,
+        "heartRate": 115
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 104
+      },
+      {
+        "type": "weight",
+        "weight": 165
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 132,
+        "diastolic": 91,
+        "heartRate": 129
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 147
+      },
+      {
+        "type": "weight",
+        "weight": 173
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "readings": [
+      {
+        "type": "bloodPressure",
+        "systolic": 114,
+        "diastolic": 125,
+        "heartRate": 115
+      },
+      {
+        "type": "glucose",
+        "bloodSugarLevel": 158
+      },
+      {
+        "type": "weight",
+        "weight": 173
+      }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "bloodPressure": {
+    "systolic": ["<", 115],
+    "diastolic": [">=", 115],
+    "heartRate": [">", 120]
+  },
+  "glucose": {
+    "bloodSugarLevel": [">=", 140]
+  },
+  "weight": {
+    "weight": ["<", 172]
+  }
+}
