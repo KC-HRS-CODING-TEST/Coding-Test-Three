@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +44,10 @@ public class Test {
     }
 
     public Test(String rulesFile, String readingsFile) throws IOException, NoSuchFieldException, SecurityException {
+        if (readingsFile.charAt(0) != '/') {
+            readingsFile = "/" + readingsFile;
+        }
+
         List<String> rulesList = mapJSONFile(rulesFile);
         String[] readingArray = mapReadingFile(readingsFile);
 
@@ -96,6 +101,29 @@ public class Test {
     public JSONArray buildReturnValues(List<String> rulesList, String[] readingArray) {
         int id = 0;
         JSONArray returnValues = new JSONArray();
+        Map <String, Rule> rulesMap = new HashMap<String, Rule>();
+
+        for (String ruleString : rulesList) {
+            Rule rule = new Rule();
+
+            if (ruleString.contains(">=")) {
+                rule.setComparison(">=");
+            } else if (ruleString.contains("<=")) {
+                rule.setComparison("<=");
+            } else if (ruleString.contains("<")) {
+                rule.setComparison("<");
+            } else if (ruleString.contains(">")) {
+                rule.setComparison(">");
+            }
+
+            String ruleName = ruleString.replaceAll("[^a-zA-Z]", "");
+            rule.setName(ruleName);
+
+            int ruleValue = Integer.parseInt(ruleString.replaceAll("\\D+", ""));
+            rule.setValue(ruleValue);
+
+            rulesMap.put(ruleName, rule);
+        }
 
         for (int i = 0; i < readingArray.length; i++) {
             String s = readingArray[i];
@@ -113,37 +141,38 @@ public class Test {
                 continue;
             }
 
-            for (String rule : rulesList) {
-                if (rule.contains(s)) {
-                    int ruleValue = Integer.parseInt(rule.replaceAll("\\D+", ""));
-                    int readingValue = Integer.parseInt(readingArray[i + 1]);
-                    boolean addValue = false;
+            Rule rule = rulesMap.get(s);
 
-                    if (rule.contains(">=")) {
-                        if (readingValue >= ruleValue) {
-                            addValue = true;
-                        }
-                    } else if (rule.contains("<=")) {
-                        if (readingValue <= ruleValue) {
-                            addValue = true;
-                        }
-                    } else if (rule.contains("<")) {
-                        if (readingValue < ruleValue) {
-                            addValue = true;
-                        }
-                    } else if (rule.contains(">")) {
-                        if (readingValue > ruleValue) {
-                            addValue = true;
-                        }
-                    }
+            if (rule != null) {
+                int ruleValue = rule.getValue();
+                String ruleComparison = rule.getComparison();
+                int readingValue = Integer.parseInt(readingArray[i + 1]);
+                boolean addValue = false;
 
-                    if (addValue) {
-                        JSONObject tempObject = new JSONObject();
-                        tempObject.put("id", id);
-                        tempObject.put("measure", s);
-                        tempObject.put("value", readingValue);
-                        returnValues.put(tempObject);
+                if (ruleComparison.equals(">=")) {
+                    if (readingValue >= ruleValue) {
+                        addValue = true;
                     }
+                } else if (ruleComparison.equals("<=")) {
+                    if (readingValue <= ruleValue) {
+                        addValue = true;
+                    }
+                } else if (ruleComparison.equals("<")) {
+                    if (readingValue < ruleValue) {
+                        addValue = true;
+                    }
+                } else if (ruleComparison.equals(">")) {
+                    if (readingValue > ruleValue) {
+                        addValue = true;
+                    }
+                }
+
+                if (addValue) {
+                    JSONObject tempObject = new JSONObject();
+                    tempObject.put("id", id);
+                    tempObject.put("measure", s);
+                    tempObject.put("value", readingValue);
+                    returnValues.put(tempObject);
                 }
             }
         }
@@ -167,8 +196,6 @@ public class Test {
             System.out.println("Server error, please wait and try again");
         }
 
-        System.out.println(returnValuesString);
-
         FileWriter fileWriter = new FileWriter("/code/results.json");
         fileWriter.write(returnValuesString);
         fileWriter.close();
@@ -178,5 +205,37 @@ public class Test {
         byte[] encoded = Files.readAllBytes(Paths.get(pathToFile));
         String savedFileText = new String(encoded, StandardCharsets.US_ASCII);
         System.out.println(savedFileText);
+    }
+
+    public class Rule {
+        String name;
+        String comparison;
+        int value;
+
+        public Rule() {}
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void setComparison(String comparison) {
+            this.comparison = comparison;
+        }
+
+        public String getComparison() {
+            return this.comparison;
+        }
+
+        public void setValue(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return this.value;
+        }
     }
 }
